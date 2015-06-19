@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	{% include head.html %}
+</head>
+
+<body class="home">
+
+	{% include nav.html %}
+	<div class="container-fluid">
+		<div class="main-nav">
+			<div class="navegacao">
+				<ul class="nav-left">
+					<li><a href="/">Home</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main-content" class="main-content">
+			{{ content }}
+		</div><!-- /#main-content -->
+	</div> <!-- .container-fluid -->
+
+	{% include footer.html %}
+
+</body>
+</html>
