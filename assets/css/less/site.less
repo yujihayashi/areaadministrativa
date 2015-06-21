@@ -1,7 +1,7 @@
-/*teste */      
 @primary-color: #812d2a; 
 @secondary-color: #089bdf;  
-@third-color: #b6967e;  
+@third-color: #b6967e;
+@bg-primary:#f2f2f2;
 /*
 FUNÇÕES PADRÕES START
 *********************************************************************/
@@ -39,19 +39,39 @@ FONTS END
 /*
 ESTRUTURA START
 **********************************************************************************************/
+html {padding-top:50px;}
 .extra-header {
+    position: fixed;z-index: 3;left: 0;top: 0;right: 0;
 	.site-header {}
 	.navbar {border:0;margin:0;.border-radius(0);}
+    .navbar-default {background: @bg-primary;}
 }
 .extra-central {
+    position: relative;z-index: 2;
 	.site-central {
-        .main-content {margin-left: 200px;}
+        > .container-fluid {position: relative;padding:0;}
+        .main-content {margin-left: 200px;padding-bottom: 90px;}
         .main-nav {
-            .nav-left {position: fixed;width: 200px;}
+            .nav-left {
+                position: fixed;width: 200px;z-index: 2;
+                &, ul {list-style: none;padding-left:0;}
+                > li {
+                    background: lighten(@bg-primary,3%);
+                    a {display: block;padding:4px 15px;position: relative;}
+                    > a {
+                        background: @bg-primary;
+                        &:hover {background: darken(@bg-primary, 5%);}
+                    }
+                    .caret {position: absolute;right: 10px;top:50%;margin-top:-3px;}
+                }
+                ul {font-size: .9em;padding:4px 0;display: none;}
+            }
+            .nav-left-bg {position: fixed;z-index: 1;background: @bg-primary;left: 0;top: 0;bottom: 0;width: 200px;}
         }
     }
 }
 .extra-footer {
+    margin-left: 200px;position: absolute;left: 0;right: 0;bottom: 0;
 	.site-footer {}
 }
 /**********************************************************************************************

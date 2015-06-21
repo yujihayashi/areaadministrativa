@@ -1,4 +1,3 @@
-/*teste */
 /*
 FUNÇÕES PADRÕES START
 *********************************************************************/
@@ -41,6 +40,16 @@ FONTS END
 /*
 ESTRUTURA START
 **********************************************************************************************/
+html {
+  padding-top: 50px;
+}
+.extra-header {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  right: 0;
+}
 .extra-header .navbar {
   border: 0;
   margin: 0;
@@ -48,12 +57,71 @@ ESTRUTURA START
   -moz-border-radius: 0;
   border-radius: 0;
 }
+.extra-header .navbar-default {
+  background: #f2f2f2;
+}
+.extra-central {
+  position: relative;
+  z-index: 2;
+}
+.extra-central .site-central > .container-fluid {
+  position: relative;
+  padding: 0;
+}
 .extra-central .site-central .main-content {
   margin-left: 200px;
+  padding-bottom: 90px;
 }
 .extra-central .site-central .main-nav .nav-left {
   position: fixed;
   width: 200px;
+  z-index: 2;
+}
+.extra-central .site-central .main-nav .nav-left,
+.extra-central .site-central .main-nav .nav-left ul {
+  list-style: none;
+  padding-left: 0;
+}
+.extra-central .site-central .main-nav .nav-left > li {
+  background: #fafafa;
+}
+.extra-central .site-central .main-nav .nav-left > li a {
+  display: block;
+  padding: 4px 15px;
+  position: relative;
+}
+.extra-central .site-central .main-nav .nav-left > li > a {
+  background: #f2f2f2;
+}
+.extra-central .site-central .main-nav .nav-left > li > a:hover {
+  background: #e5e5e5;
+}
+.extra-central .site-central .main-nav .nav-left > li .caret {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -3px;
+}
+.extra-central .site-central .main-nav .nav-left ul {
+  font-size: .9em;
+  padding: 4px 0;
+  display: none;
+}
+.extra-central .site-central .main-nav .nav-left-bg {
+  position: fixed;
+  z-index: 1;
+  background: #f2f2f2;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+}
+.extra-footer {
+  margin-left: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 /**********************************************************************************************
 ESTRUTURA END
