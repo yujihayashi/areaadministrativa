@@ -13,10 +13,20 @@
 							<a class="navbar-brand" href="/" title="Voltar para a página inicial">Área administrativa</a>
 						</div>
 						<div class="collapse navbar-collapse primary-nav">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="{{ base }}/noticias/cadastro.html"><span class="fa fa-plus-square-o"></span> Cadastrar <b class="caret"></b></a>
+									
+								</li>
+							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
-									<a href="/">Olá Yuji! <b class="caret"></b></a>
-									
+									<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user"></span> Olá Yuji! <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ base }}/usuario/cadastro.html">Meus dados</a></li>
+										<li><a href="{{ base }}/usuario/senha.html">Alterar senha</a></li>
+										<li><a href="{{ base }}/usuario/login.html">Sair</a></li>
+									</ul>
 								</li>
 							</ul>
 						</div><!-- /.navbar-collapse -->

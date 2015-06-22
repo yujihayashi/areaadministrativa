@@ -51,12 +51,17 @@ module.exports = function( grunt ) {
       options: {
         livereload: true,
       },
+      js: {
+        files: ['assets/js/*'],
+        tasks: ['jekyll']
+      },
       css: {
         files: ['assets/css/less/*'],
         tasks: ['less', 'jekyll']
       },
       html: {
-        files: ['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*'],
+        files: ['*.html','**/*.html', '_includes/*.html', '_layouts/*.html'],
+        // files: ['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*'],
         tasks: ['jekyll'],
         options: {
           spawn: false,

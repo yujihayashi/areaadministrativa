@@ -1,3 +1,4 @@
+{% include base.html %}
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +15,11 @@
 					<div class="container-fluid">
 						{% include sidebar.html %}
 						<div id="main-content" class="main-content">
-							<div class="main-body">{{ content }}</div> <!-- .main-body -->
+							<div class="main-body">
+								<div class="container-fluid">
+									{{ content }}
+								</div> <!-- .container-fluid -->
+							</div> <!-- .main-body -->
 						</div><!-- /#main-content -->
 						{% include footer.html %}
 					</div> <!-- .container-fluid -->

@@ -1,25 +1,40 @@
 <div class="main-nav">
 	<div class="navegacao">
-		<ul class="nav-left">
-			<li><a href="/">Painel</a></li>
+		<ul class="nav-left" data-spy="affix" data-offset-top="60" data-offset-bottom="60">
+			<li><a href="/"><span class="fa fa-home"></span> Painel</a></li>
 			<li>
-				<a href="javascript:void(0);">Notícias <b class="caret"></b></a>
-				<ul>
-					<li><a href="#">Todas as notícias</a></li>
-					<li><a href="#">Cadastrar notícia</a></li>
-					<li><a href="#">Categorias</a></li>
+				<a href="javascript:void(0);"><span class="fa fa-globe"></span> Notícias <b class="caret"></b></a>
+				<ul style="{% if page.local == 'noticias' %}display:block;{% endif %}">
+					<li class="{% if page.link == 'noticiaslista' %}active{% endif %}"><a href="{{ base }}/noticias/index.html">Todas as notícias</a></li>
+					<li class="{% if page.link == 'noticiascadastro' %}active{% endif %}"><a href="{{ base }}/noticias/cadastro.html">Cadastrar notícia</a></li>
+					<li class="{% if page.link == 'noticiascategorias' %}active{% endif %}"><a href="{{ base }}/noticias/categorias.html">Categorias</a></li>
 				</ul>
 			</li>
-			<li><a href="javascript:void(0);">Páginas <b class="caret"></b></a>
+			<li><a href="javascript:void(0);"><span class="fa fa-file-text-o"></span> Páginas <b class="caret"></b></a>
 				<ul>
 					<li><a href="#">Todas as páginas</a></li>
 					<li><a href="#">Cadastrar página</a></li>
 				</ul>
 			</li>
-			<li><a href="javascript:void(0);">Assinaturas <b class="caret"></b></a>
+			<li><a href="javascript:void(0);"><span class="fa fa-shopping-cart"></span> Assinaturas <b class="caret"></b></a>
 				<ul>
 					<li><a href="#">Todos as assinaturas</a></li>
 					<li><a href="#">Cadastrar assinatura</a></li>
+				</ul>
+			</li>
+			<li><a href="javascript:void(0);"><span class="fa fa-notebook"></span> Modelos <b class="caret"></b></a>
+				<ul style="{% if page.local == 'modelos' %}display:block;{% endif %}">
+					<li class="{% if page.link == 'typography' %}active{% endif %}"><a href="{{ base }}/modelos/typography.html">Tipografia</a></li>
+					<li class="{% if page.link == 'icons' %}active{% endif %}"><a href="{{ base }}/modelos/icons.html">Ícones</a></li>
+					<li class="{% if page.link == 'buttons' %}active{% endif %}"><a href="{{ base }}/modelos/buttons.html">Botões</a></li>
+					<li class="{% if page.link == 'tabs' %}active{% endif %}"><a href="{{ base }}/modelos/tabs.html">Abas</a></li>
+					<li class="{% if page.link == 'navigation' %}active{% endif %}"><a href="{{ base }}/modelos/navigation.html">Navegação</a></li>
+					<li class="{% if page.link == 'modals' %}active{% endif %}"><a href="{{ base }}/modelos/modals.html">Modals</a></li>
+					<li class="{% if page.link == 'themecolor' %}active{% endif %}"><a href="{{ base }}/modelos/themecolor.html">Cores do tema</a></li>
+					<li class="{% if page.link == 'tables' %}active{% endif %}"><a href="{{ base }}/modelos/tables.html">Tabelas</a></li>
+					<li class="{% if page.link == 'forms' %}active{% endif %}"><a href="{{ base }}/modelos/forms.html">Formulários</a></li>
+					<li class="{% if page.link == 'errorpage' %}active{% endif %}"><a href="{{ base }}/modelos/errorpage.html">Página de erro</a></li>
+					<li class="{% if page.link == 'blocks' %}active{% endif %}"><a href="{{ base }}/modelos/blocks.html">Blocos</a></li>
 				</ul>
 			</li>
 		</ul>

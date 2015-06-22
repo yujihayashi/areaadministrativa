@@ -2,6 +2,11 @@
 @secondary-color: #089bdf;  
 @third-color: #b6967e;
 @bg-primary:#f2f2f2;
+@bg-primary-light:#F7F7F7;
+@link: ;
+@link-menu: #888 ;
+@link-categoria: #666 ;
+@text-default: #333;
 /*
 FUNÇÕES PADRÕES START
 *********************************************************************/
@@ -40,15 +45,16 @@ FONTS END
 ESTRUTURA START
 **********************************************************************************************/
 html {padding-top:50px;}
+body {color: @text-default;}
 .extra-header {
     position: fixed;z-index: 3;left: 0;top: 0;right: 0;
-	.site-header {}
-	.navbar {border:0;margin:0;.border-radius(0);}
+    .site-header {}
+    .navbar {border:0;margin:0;.border-radius(0);}
     .navbar-default {background: @bg-primary;}
 }
 .extra-central {
     position: relative;z-index: 2;
-	.site-central {
+    .site-central {
         > .container-fluid {position: relative;padding:0;}
         .main-content {margin-left: 200px;padding-bottom: 90px;}
         .main-nav {
@@ -57,14 +63,21 @@ html {padding-top:50px;}
                 &, ul {list-style: none;padding-left:0;}
                 > li {
                     background: lighten(@bg-primary,3%);
-                    a {display: block;padding:4px 15px;position: relative;}
+                    a {display: block;padding:4px 15px;position: relative;color: @link-menu;}
                     > a {
-                        background: @bg-primary;
-                        &:hover {background: darken(@bg-primary, 5%);}
+                        background: @bg-primary; color: @link-categoria;
+                        &:hover {background: darken(@bg-primary, 5%);text-decoration: none;}
                     }
                     .caret {position: absolute;right: 10px;top:50%;margin-top:-3px;}
                 }
-                ul {font-size: .9em;padding:4px 0;display: none;}
+                ul {
+                    font-size: .9em;padding:4px 0;display: none;
+                    > li {
+                        &.active {
+                            a {color: darken(@link-menu, 35%);}
+                        }
+                    }
+                }
             }
             .nav-left-bg {position: fixed;z-index: 1;background: @bg-primary;left: 0;top: 0;bottom: 0;width: 200px;}
         }
@@ -72,17 +85,40 @@ html {padding-top:50px;}
 }
 .extra-footer {
     margin-left: 200px;position: absolute;left: 0;right: 0;bottom: 0;
-	.site-footer {}
+    .site-footer {}
 }
 /**********************************************************************************************
 ESTRUTURA END
 */
+
+.form-control, .dataTables_length select, .dataTables_filter input {
+    display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    &:focus {border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
+    &::-moz-placeholder, &:-ms-input-placeholder, &::-webkit-input-placeholder {color: #777;}
+}
+.input-lg, .form-horizontal .form-group-lg .form-control {height: 46px;padding: 10px 16px;font-size: 18px;line-height: 1.33;border-radius: 6px;}
+.input-sm, .form-horizontal .form-group-sm .form-control {height: 30px;padding: 5px 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;}
 /*
 CLASSES START
 **********************************************************************************************/
 [class^='lista-'], [class^='lista-'], [class^='menu-'], [class^='menu-'] ul, .cycle-slideshow {list-style:none;margin-bottom:0;padding-left:0;}
+.affix-bottom {bottom: 0;}
+
 .btn-gray {background: #EEE;color:#C93F2A;}
 .btn-rounded {-webkit-border-radius: 150px;-moz-border-radius: 150px;border-radius: 150px;}
+.box {
+    background: @bg-primary-light;border: 1px solid darken(@bg-primary-light, 3%);margin:0 0 20px;
+    .box-header, .box-content {padding:15px 15px;}
+    .box-header {border-bottom: 1px solid darken(@bg-primary-light, 3%);}
+    .box-content {border-top: 1px solid lighten(@bg-primary-light, 5%);}
+    &.box-lg {
+        .box-header, .box-content {padding:20px 15px;}
+    }
+    &.box-sm {
+        .box-header, .box-content {padding:8px 15px;}
+    }
+}
+.box-title {margin:0;padding:0;font-size: 16px;}
 
 .cycle-nav {
 	span {display: inline-block;cursor: pointer;}
@@ -95,6 +131,15 @@ CLASSES START
 .inline-block {display:inline-block;}
 [class^='ycon-'], [class*='ycon-'] {background-repeat:no-repeat;vertical-align:middle;display:inline-block;background-image:url(../imagem/site/ycon.png);}
 
+.page-header {
+    margin:20px 0;
+    h1, h2, h3 {font-size: 20px;}
+}
+
+table {
+    .btn-group {display: flex;}
+}
+
 .space {width:1%;display:inline-block;height:100%;vertical-align:middle;}
 .relative {position: relative;}
 /**********************************************************************************************
@@ -103,7 +148,24 @@ CLASSES END
 /*
 JQUERY UI START
 **********************************************************************************************/
-
+.dataTables_length, .dataTables_filter {
+    select, input {display: inline-block;width: inherit;}
+}
+.dataTables_length, .dataTables_info {float: left;}
+.dataTables_filter, .dataTables_paginate {float: right;}
+.dataTables_filter {
+    input {margin-left: 10px;}
+}
+.dataTables_info {padding:4px 0;}
+.dataTables_paginate {
+    .paginate_button {
+        display: inline-block;padding:4px 6px;cursor: pointer;
+        &.disabled {
+            color:@text-default;cursor: default;
+            &:hover {text-decoration: none;}
+        }
+    }
+}
 /**********************************************************************************************
 JQUERY UI END
 */
@@ -111,14 +173,14 @@ JQUERY UI END
 
 }
 @media (max-width: 767px) {
- /*    .site-geral:before {content:"TABLET";}*/
+   /*    .site-geral:before {content:"TABLET";}*/
 }
 @media (max-width: 480px) {
- /*#GERAL:before {content:"MOBILE";}*/
+   /*#GERAL:before {content:"MOBILE";}*/
 }
 @media (min-width: 768px) and (max-width: 980px) {
 
 }
 @media (min-width: 981px) and (max-width: 1200px) {
- /*#GERAL:before {content:"ACIMA DE TABLET";}*/
+   /*#GERAL:before {content:"ACIMA DE TABLET";}*/
 }
