@@ -1,8 +1,8 @@
-<div class="main-nav">
+<div class="main-nav">VAI TOMAR NO CU 
 	<div class="navegacao">
 		<ul class="nav-left" data-spy="affix" data-offset-top="60" data-offset-bottom="60">
-			<li><a href="/"><span class="fa fa-home"></span> Painel</a></li>
-			<li>
+			<li class="{% if page.local == 'home' %}open{% endif %}"><a href="/"><span class="fa fa-home"></span> Painel</a></li>
+			<li class="{% if page.local == 'noticias' %}open{% endif %}">
 				<a href="javascript:void(0);"><span class="fa fa-globe"></span> Notícias <b class="caret"></b></a>
 				<ul style="{% if page.local == 'noticias' %}display:block;{% endif %}">
 					<li class="{% if page.link == 'noticiaslista' %}active{% endif %}"><a href="{{ base }}/noticias/index.html">Todas as notícias</a></li>

@@ -30,7 +30,7 @@ $(function() {
 			$(this).addClass('active btn-warning');
 			$(this).removeClass('btn-default');
 		}
-	})
+	});
 	//  btn-ativo
 	$('.btn-ativo').click( function () {
 		if ($(this).hasClass('active')) {
@@ -46,7 +46,11 @@ $(function() {
 			$(this).removeClass('btn-default');
 			$(this).find('.sr-only').html('Desativar');
 		}
-	})
+	});
+
+	if ('.datePicker') {
+		$('.datePicker').datepicker( $.datepicker.regional[ "pt-BR" ] );
+	}
 
 // $('.ver-imagem').prettyPhoto();
 // $('a[rel^="prettyPhoto"]').prettyPhoto();

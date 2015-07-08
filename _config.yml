@@ -1,1 +1,2 @@
 name: Área administrativa
+exclude: ['node_modules', 'package.json']
